@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.CadastroUsuarioViewController">
+   <children>
+      <Label layoutX="168.0" layoutY="59.0" text="Nome Completo:" />
+      <TextField fx:id="nomeCompletoTextField" layoutX="283.0" layoutY="55.0" />
+      <TextField fx:id="cpfTextField" layoutX="283.0" layoutY="93.0" />
+      <TextField fx:id="emailTextField" layoutX="283.0" layoutY="174.0" />
+      <TextField fx:id="loginTextField" layoutX="283.0" layoutY="212.0" />
+      <Label layoutX="236.0" layoutY="97.0" text="CPF:" />
+      <Label layoutX="232.0" layoutY="178.0" text="Email:" />
+      <Label layoutX="231.0" layoutY="216.0" text="Login:" />
+      <Label layoutX="230.0" layoutY="253.0" text="Senha:" />
+      <Label layoutX="174.0" layoutY="290.0" text="Confirmar Senha:" />
+      <PasswordField fx:id="senhaPasswordField" layoutX="283.0" layoutY="249.0" />
+      <PasswordField fx:id="confirmarSenhaPasswordField" layoutX="283.0" layoutY="286.0" />
+      <Label layoutX="230.0" layoutY="135.0" text="Cargo:" />
+      <ComboBox fx:id="cargoComboBox" layoutX="283.0" layoutY="131.0" prefWidth="150.0" />
+      <ButtonBar layoutX="214.0" layoutY="327.0" prefHeight="40.0" prefWidth="91.0" />
+      <ButtonBar layoutX="358.0" layoutY="327.0" prefHeight="40.0" prefWidth="91.0" />
+    <Button fx:id="cancelarButton" layoutX="262.0" layoutY="338.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Cancelar" />
+    <Button fx:id="salvarButton" layoutX="396.0" layoutY="338.0" mnemonicParsing="false" onAction="#onSalvarButtonClick" prefHeight="25.0" prefWidth="75.0" text="Salvar" />
+   </children>
+</AnchorPane>
