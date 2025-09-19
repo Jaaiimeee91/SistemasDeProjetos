@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.DashboardViewController">
+   <children>
+      <Label layoutX="217.0" layoutY="27.0" text="Painel Principal">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Button fx:id="gerenciarUsuariosButton" layoutX="217.0" layoutY="108.0" mnemonicParsing="false" onAction="#onGerenciarUsuariosClick" text="Gerenciar Usuários" />
+      <Button fx:id="gerenciarProjetosButton" layoutX="217.0" layoutY="166.0" mnemonicParsing="false" onAction="#onGerenciarProjetosClick" text="Gerencias Projetos" />
+   </children>
+</AnchorPane>

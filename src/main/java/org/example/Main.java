@@ -15,7 +15,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         // CORREÇÃO: Apontamos para a tela de USUÁRIO, que é a nossa tela inicial.
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/org/example/cadastro-usuario-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/org/example/dashboard-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 500);
 
 
