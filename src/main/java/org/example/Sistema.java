@@ -21,7 +21,25 @@ public class Sistema {
         this.usuarios = new ArrayList<>();
         this.projetos = new ArrayList<>();
         this.equipes = new ArrayList<>();
+
+        criarDadosIniciais();
     }
+
+    private void criarDadosIniciais() {
+        // Cria e cadastra um Gerente
+        Usuario gerentePadrao = new Usuario("Jaime Silva (Gerente)", "111.111.111-11", "jaime.gerente", "jaime@email.com", "123", "Gestor de Projetos");
+        this.usuarios.add(gerentePadrao);
+
+        // Cria e cadastra um Membro da Equipe
+        Usuario devPadrao = new Usuario("Bruna Lima (Dev)", "222.222.222-22", "bruna.dev", "bruna@email.com", "123", "Membro da Equipe");
+        this.usuarios.add(devPadrao);
+
+
+        System.out.println(">>> Dados de teste carregados: 2 usuários criados automaticamente.");
+
+        System.out.println("DEBUG 1: criarDadosIniciais() executado. Usuários na lista: " + this.usuarios.size());
+    }
+
 
     /**
      * Cadastra um novo usuário no sistema, adicionando-o à lista de usuários.

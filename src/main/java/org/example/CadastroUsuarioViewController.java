@@ -1,12 +1,15 @@
 package org.example;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
 
-public class CadastroUsuarioViewController {
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
+
+public class CadastroUsuarioViewController implements Initializable {
     @FXML
     private TextField nomeCompletoTextField;
 
@@ -49,41 +52,78 @@ public class CadastroUsuarioViewController {
         String confirmarSenha = confirmarSenhaPasswordField.getText();
         String cargo = cargoComboBox.getValue();
 
-        // --- INÍCIO DA VALIDAÇÃO ---
-
-        // 2. Verificar se campos essenciais estão vazios
-        if (nome.isBlank() || login.isBlank() || email.isBlank() || senha.isBlank()) {
-            System.out.println("ERRO DE VALIDAÇÃO: Por favor, preencha todos os campos obrigatórios.");
-            // Futuramente, podemos mostrar um pop-up de erro para o usuário aqui.
-            return; // Para a execução do método se houver um erro.
+        // --- NOVA VALIDAÇÃO (CAMPO POR CAMPO) ---
+        if (nome.isBlank()) {
+            showAlert(Alert.AlertType.ERROR, "Erro de Validação", "O campo 'Nome Completo' é obrigatório.");
+            return;
         }
-
-        // 3. Verificar se as senhas são iguais
+        if (cpf.isBlank()) {
+            showAlert(Alert.AlertType.ERROR, "Erro de Validação", "O campo 'CPF' é obrigatório.");
+            return;
+        }
+        if (login.isBlank()) {
+            showAlert(Alert.AlertType.ERROR, "Erro de Validação", "O campo 'Login' é obrigatório.");
+            return;
+        }
+        if (email.isBlank()) { // Vamos adicionar a verificação de e-mail também
+            showAlert(Alert.AlertType.ERROR, "Erro de Validação", "O campo 'Email' é obrigatório.");
+            return;
+        }
+        if (senha.isBlank()) {
+            showAlert(Alert.AlertType.ERROR, "Erro de Validação", "O campo 'Senha' é obrigatório.");
+            return;
+        }
         if (!senha.equals(confirmarSenha)) {
-            System.out.println("ERRO DE VALIDAÇÃO: As senhas não coincidem.");
-            // Futuramente, podemos mostrar outro pop-up de erro.
-            return; // Para a execução do método se houver um erro.
+            showAlert(Alert.AlertType.ERROR, "Erro de Validação", "As senhas não coincidem.");
+            return;
         }
-
-        // --- FIM DA VALIDAÇÃO ---
+        // Poderíamos adicionar mais validações aqui no futuro (ex: CPF válido, etc.)
 
         // 3. Se todas as validações passaram, criar o objeto Usuario
         Usuario novoUsuario = new Usuario(
                 nome,
+                cpf,
                 login,
                 email,
-                senha, // Usamos a senha já validada
-                cargo,
-                cpf
+                senha,
+                cargo
         );
 
-        // 4. Testar se o objeto foi criado corretamente
-        System.out.println("Objeto Usuário criado com sucesso na memória!");
-        System.out.println("Nome recuperado do objeto: " + novoUsuario.getNomeCompleto());
+        // 4. Chamar o método do nosso sistema para cadastrar o usuário
+        Main.sistema.cadastrarUsuario(novoUsuario);
 
-        // TODO: O último passo será salvar o objeto 'novoUsuario' no banco de dados.
+        // 5. Mostrar alerta de sucesso
+        showAlert(Alert.AlertType.INFORMATION, "Sucesso", "Usuário '" + nome + "' cadastrado com sucesso!");
+
+        // 6. Limpar os campos da tela após o cadastro
+        nomeCompletoTextField.clear();
+        cpfTextField.clear();
+        emailTextField.clear();
+        loginTextField.clear();
+        senhaPasswordField.clear();
+        confirmarSenhaPasswordField.clear();
+        cargoComboBox.getSelectionModel().clearSelection();
     }
 
 
+    private void showAlert(Alert.AlertType alertType, String title, String message) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null); // Não queremos um cabeçalho
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Cria uma lista de cargos
+        List<String> cargos = new ArrayList<>();
+        cargos.add("Gestor de Projetos");
+        cargos.add("Membro da Equipe");
+        cargos.add("Administrador");
+
+        // Adiciona a lista de cargos à ComboBox
+        cargoComboBox.getItems().addAll(cargos);
+    }
 }
 
