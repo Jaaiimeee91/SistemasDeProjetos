@@ -3,6 +3,7 @@ package org.example;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
 import java.net.URL;
@@ -105,5 +106,14 @@ public class CadastroProjetoViewController {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    @FXML
+    void onCancelarButtonClick() {
+        // Pega o "palco" (Stage) atual a partir de qualquer componente, como o botão
+        Stage stage = (Stage) cancelarButton.getScene().getWindow();
+
+        // Fecha a janela
+        stage.close();
     }
 }

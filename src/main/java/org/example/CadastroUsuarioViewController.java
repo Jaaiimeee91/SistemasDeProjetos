@@ -3,6 +3,7 @@ package org.example;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -124,6 +125,15 @@ public class CadastroUsuarioViewController implements Initializable {
 
         // Adiciona a lista de cargos à ComboBox
         cargoComboBox.getItems().addAll(cargos);
+    }
+
+    @FXML
+    void onCancelarButtonClick() {
+        // Pega o "palco" (Stage) atual a partir de qualquer componente, como o botão
+        Stage stage = (Stage) cancelarButton.getScene().getWindow();
+
+        // Fecha a janela
+        stage.close();
     }
 }
 

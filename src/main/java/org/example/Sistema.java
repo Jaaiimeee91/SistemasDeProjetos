@@ -37,7 +37,6 @@ public class Sistema {
 
         System.out.println(">>> Dados de teste carregados: 2 usuários criados automaticamente.");
 
-        System.out.println("DEBUG 1: criarDadosIniciais() executado. Usuários na lista: " + this.usuarios.size());
     }
 
 
