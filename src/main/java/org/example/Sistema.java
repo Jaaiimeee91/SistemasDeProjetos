@@ -1,5 +1,6 @@
 package org.example;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,15 +28,26 @@ public class Sistema {
 
     private void criarDadosIniciais() {
         // Cria e cadastra um Gerente
-        Usuario gerentePadrao = new Usuario("Jaime Silva (Gerente)", "111.111.111-11", "jaime.gerente", "jaime@email.com", "123", "Gestor de Projetos");
+        Usuario gerentePadrao = new Usuario("Luffy (Gerente)", "111.111.111-11", "luffy.gerente", "luffy@email.com", "123", "Gestor de Projetos");
         this.usuarios.add(gerentePadrao);
 
         // Cria e cadastra um Membro da Equipe
-        Usuario devPadrao = new Usuario("Bruna Lima (Dev)", "222.222.222-22", "bruna.dev", "bruna@email.com", "123", "Membro da Equipe");
+        Usuario devPadrao = new Usuario("Zoro (Dev)", "222.222.222-22", "zoro.dev", "zoro@email.com", "123", "Membro da Equipe");
         this.usuarios.add(devPadrao);
 
-
         System.out.println(">>> Dados de teste carregados: 2 usuários criados automaticamente.");
+
+        Projeto projetoInicial = new Projeto(
+                "Website Institucional",
+                "Desenvolvimento do novo website da empresa XPTO.",
+                LocalDate.now(), // Usa a data de hoje como início
+                LocalDate.now().plusMonths(3), // Prevê o término para daqui a 3 meses
+                gerentePadrao // Usa o gerente que acabamos de criar como responsável
+        );
+        this.projetos.add(projetoInicial); // Adiciona o projeto à lista
+
+        System.out.println(">>> Dados de teste carregados: 1 projeto criado automaticamente.");
+
 
     }
 
