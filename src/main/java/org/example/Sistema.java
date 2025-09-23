@@ -104,4 +104,13 @@ public class Sistema {
     public List<Equipe> getEquipes() {
         return this.equipes;
     }
+
+    /**
+     * Remove um projeto da lista de projetos em memória.
+     * @param projeto O objeto Projeto a ser removido.
+     */
+    public void apagarProjeto(Projeto projeto) {
+        this.projetos.remove(projeto);
+        System.out.println("Projeto '" + projeto.getNome() + "' foi removido do sistema.");
+    }
 }

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.DetalhesProjetoViewController">
+   <children>
+      <Label layoutX="190.0" layoutY="99.0" text="Nome do Projeto" />
+      <Label fx:id="nomeProjetoLabel" layoutX="379.0" layoutY="99.0" text="Label" />
+      <Label fx:id="gerenteLabel" layoutX="379.0" layoutY="130.0" text="Label" />
+      <Label layoutX="190.0" layoutY="125.0" prefHeight="26.0" prefWidth="119.0" text="Gerente Responsável" />
+      <Label layoutX="193.0" layoutY="25.0" prefHeight="35.0" prefWidth="223.0" text="Detalhes do Projeto">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="190.0" layoutY="155.0" text="Cliente" />
+      <Label fx:id="clienteLabel" layoutX="379.0" layoutY="155.0" text="Label" />
+      <Label layoutX="190.0" layoutY="184.0" text="Data de Início" />
+      <Label fx:id="dataInicioLabel" layoutX="379.0" layoutY="184.0" text="Label" />
+      <Label layoutX="190.0" layoutY="214.0" text="Data de Término" />
+      <Label fx:id="dataTerminoLabel" layoutX="379.0" layoutY="214.0" text="Label" />
+      <Label layoutX="190.0" layoutY="246.0" text="Status" />
+      <Label fx:id="statusLabel" layoutX="379.0" layoutY="246.0" text="Label" />
+      <Button fx:id="editarButton" layoutX="183.0" layoutY="316.0" mnemonicParsing="false" onAction="#onEditarButtonClick" text="Editar" />
+      <Button fx:id="apagarButton" layoutX="273.0" layoutY="316.0" mnemonicParsing="false" onAction="#onApagarButtonClick" text="Apagar" />
+      <Button fx:id="fecharButton" layoutX="365.0" layoutY="316.0" mnemonicParsing="false" onAction="#onFecharButtonClick" text="Fechar" />
+      <Label layoutX="190.0" layoutY="274.0" text="Descrição" />
+      <Label fx:id="descricaoLabel" layoutX="379.0" layoutY="274.0" text="Label" />
+   </children>
+</AnchorPane>

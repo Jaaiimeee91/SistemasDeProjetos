@@ -14,6 +14,7 @@ public class Projeto {
     private final ObjectProperty<LocalDate> dataTerminoPrevista;
     private final StringProperty status;
     private final ObjectProperty<Usuario> gerenteResponsavel;
+    private final StringProperty cliente;
 
     public Projeto(String nome, String descricao, LocalDate dataInicio, LocalDate dataTerminoPrevista, Usuario gerenteResponsavel) {
         this.nome = new SimpleStringProperty(nome);
@@ -22,17 +23,47 @@ public class Projeto {
         this.dataTerminoPrevista = new SimpleObjectProperty<>(dataTerminoPrevista);
         this.status = new SimpleStringProperty("Planejado");
         this.gerenteResponsavel = new SimpleObjectProperty<>(gerenteResponsavel);
+        this.cliente = new SimpleStringProperty("");
     }
 
     // --- Getters que retornam a propriedade inteira (para o JavaFX) ---
-    public StringProperty nomeProperty() { return nome; }
-    public StringProperty statusProperty() { return status; }
-    public ObjectProperty<Usuario> gerenteResponsavelProperty() { return gerenteResponsavel; }
+    public StringProperty nomeProperty() {
+        return nome;
+    }
+    public StringProperty statusProperty() {
+        return status;
+    }
+    public ObjectProperty<Usuario> gerenteResponsavelProperty() {
+        return gerenteResponsavel;
+    }
 
     // --- Getters normais que retornam o valor (para o resto do nosso código) ---
-    public String getNome() { return nome.get(); }
-    public String getStatus() { return status.get(); }
-    public Usuario getGerenteResponsavel() { return gerenteResponsavel.get(); }
+    public String getNome() {
+        return nome.get();
+    }
+    public String getStatus() {
+        return status.get();
+    }
+    public Usuario getGerenteResponsavel() {
+        return gerenteResponsavel.get();
+    }
 
-    // (Outros getters e setters podem ser adicionados aqui se necessário)
+    public String getDescricao() {
+        return descricao.get();
+    }
+
+    public LocalDate getDataInicio() {
+        return dataInicio.get();
+    }
+
+    public LocalDate getDataTerminoPrevista() {
+        return dataTerminoPrevista.get();
+    }
+    public String getCliente() {
+        return cliente.get();
+    }
+
+    public void setCliente(String cliente) {
+        this.cliente.set(cliente);
+    }
 }
